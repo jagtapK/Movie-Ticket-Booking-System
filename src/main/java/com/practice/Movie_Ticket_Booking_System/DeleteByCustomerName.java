@@ -20,13 +20,16 @@ public class DeleteByCustomerName {
 		Transaction transaction = session.beginTransaction();
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Customer Name: ");
-		String name = sc.nextLine();
+		System.out.println("Enter Booking ID to delete: ");
+		int id = sc.nextInt();
 		
-		Bookings b = session.find(Bookings.class, name);
+		
+		Bookings b = session.find(Bookings.class, id);
         session.remove(b);
 		
 		transaction.commit();
 		session.close();
+		
+		System.out.println("Customer Details Deleted");
 	}
 }

@@ -1,7 +1,9 @@
 package com.practice.Movie_Ticket_Booking_System;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -14,7 +16,7 @@ import movieTicket.Entity.Movies;
 
 public class Set_Details {
 
-	public static void main(String[] args) {
+	public void Details() {
 
 		SessionFactory factory = MovieTicketUtility.getSessionFactory();
 		Session session = factory.openSession();

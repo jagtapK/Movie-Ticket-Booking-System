@@ -20,14 +20,20 @@ public class UpdateSeats {
 		Transaction transaction = session.beginTransaction();
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Available Seats: ");
-		int seats = sc.nextInt();
+		System.out.println("Enter Your Id: ");
+		int id = sc.nextInt();
+		sc.nextLine();
 		
-		Bookings b = session.find(Bookings.class, seats);
-		System.out.println(b.toString());
+		Bookings b = session.find(Bookings.class, id);
+		
+		System.out.println("Enter Available Seats");
+		int seats = sc.nextInt();
+		b.setSeatsBooked(seats);
 		
 		transaction.commit();
 
 		session.close();
+		
+		System.out.println("Update Available Seats");
 	}
 }
