@@ -1,7 +1,12 @@
 package movieTicket.Entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -9,6 +14,7 @@ import jakarta.persistence.Table;
 public class Bookings {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String movieName;
 	
@@ -16,6 +22,17 @@ public class Bookings {
 	private String showTime;
 	
 	private int seatsBooked;
+
+	@ManyToMany
+	private List<Movies> movies;
+	
+	public List<Movies> getMovies() {
+		return movies;
+	}
+
+	public void setMovies(List<Movies> movies) {
+		this.movies = movies;
+	}
 
 	public int getId() {
 		return id;
